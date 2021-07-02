@@ -123,7 +123,7 @@ push () {
 	$SUDO git remote update > /dev/null
 
 	# If local files are different than remote, update remote Git repo
-        CHANGED=$($SUDO git --work-tree=$personal_git_dir status --porcelain)
+        CHANGED=$($SUDO git diff origin/master)
         if [ -n "${CHANGED}" ]; then
                 echo 'Local Pi-hole lists are different than remote Git repo. Updating remote repo...';
 		rightnow=$(date +"%B %e, %Y %l:%M%p")
